@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var exec = require('child_process').exec;
 var fs = require('fs');
-var os = require('os');
+var homedir = require('os-homedir');
 
 gulp.task('setup', function(callback) {
     var username = process.env.PARTICLE_USERNAME;
@@ -20,15 +20,17 @@ gulp.task('setup', function(callback) {
         '\t'
         );
     
-    fs.mkdir(os.homedir() + '/.particle', function () {
-        fs.writeFile(os.homedir() + '/.particle/particle.config.json', particleConfigurationFileContents, function (err) {
+    fs.mkdir(homedir() + '/.particle', function () {
+        fs.writeFile(homedir() + '/.particle/particle.config.json', particleConfigurationFileContents, function (err) {
             callback(err);
         });
     });
 });
 
 gulp.task('compile', ['setup'], function (callback) {
-
+    exec('node_modules/.bin/particle compile photon firmware.ino', function(err) {
+        callback(err);
+    });
 });
 
 gulp.task('default', ['compile']);
