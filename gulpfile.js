@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var exec = require('child_process').exec;
 var fs = require('fs');
 var homedir = require('os-homedir');
+var os = require('os');
 
 gulp.task('setup', function(callback) {
     var username = process.env.PARTICLE_USERNAME;
@@ -28,7 +29,13 @@ gulp.task('setup', function(callback) {
 });
 
 gulp.task('compile', ['setup'], function (callback) {
-    exec('node_modules/.bin/particle compile photon firmware.ino', function(err) {
+    if (os.type() == 'Windows') {
+        var command = 'node_modules/.bin/particle.cmd';
+    } else {
+        var command = 'node_modules/.bin/particle';
+    }
+    
+    exec(command + ' compile photon firmware.ino', function(err) {
         callback(err);
     });
 });
