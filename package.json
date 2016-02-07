@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/mitchdenny/hello-particle/"
-	},"devDependencies": {
+    "type": "git",
+    "url": "https://github.com/mitchdenny/hello-particle/"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
     "particle-cli": "^1.10.0"
   }
 }
