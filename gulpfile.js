@@ -40,4 +40,16 @@ gulp.task('compile', ['setup'], function (callback) {
     });
 });
 
+gulp.task('flash', ['setup'], function(callback) {
+    if (os.type() == 'Windows_NT') {
+        var command = 'node_modules\\.bin\\particle.cmd';
+    } else {
+        var command = 'node_modules/.bin/particle';
+    }
+    
+    exec(command + ' flash demo firmware.bin', function(err) {
+        callback(err);
+    });     
+});
+
 gulp.task('default', ['compile']);
