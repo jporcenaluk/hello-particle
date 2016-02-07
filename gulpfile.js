@@ -29,7 +29,7 @@ gulp.task('setup', function(callback) {
 });
 
 gulp.task('compile', ['setup'], function (callback) {
-    if (os.type() == 'Windows') {
+    if (os.type() == 'win32') {
         var command = 'node_modules/.bin/particle.cmd';
     } else {
         var command = 'node_modules/.bin/particle';
