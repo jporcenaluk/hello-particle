@@ -30,7 +30,7 @@ gulp.task('setup', function(callback) {
 
 gulp.task('compile', ['setup'], function (callback) {
     if (os.type() == 'Windows_NT') {
-        var command = 'node_modules/.bin/particle.cmd';
+        var command = 'node_modules\\.bin\\particle.cmd';
     } else {
         var command = 'node_modules/.bin/particle';
     }
