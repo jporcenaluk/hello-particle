@@ -35,7 +35,7 @@ gulp.task('compile', ['setup'], function (callback) {
         var command = 'node_modules/.bin/particle';
     }
     
-    exec(command + ' compile photon firmware.ino', function(err) {
+    exec(command + ' compile photon firmware.ino --saveTo firmware.bin', function(err) {
         callback(err);
     });
 });
