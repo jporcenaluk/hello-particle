@@ -47,7 +47,11 @@ gulp.task('flash', ['setup'], function(callback) {
         var command = 'node_modules/.bin/particle';
     }
     
+    console.log('Hello World!');
+    
     exec(command + ' flash demo firmware.bin', function(err, stdout, stderr) {
+        console.log('Goodbye World!');
+        
         console.log(stderr);
         callback(err);
     });     
