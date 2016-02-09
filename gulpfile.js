@@ -3,16 +3,17 @@ var exec = require('child_process').exec;
 var fs = require('fs');
 var homedir = require('os-homedir');
 var os = require('os');
+var minimist = require('minimist');
 
 gulp.task('setup', function(callback) {
-    var username = process.env.PARTICLE_USERNAME;
-    var accessToken = process.env.PARTICLE_ACCESSTOKEN;
-    var createdInBuild = process.env.BUILD_BUILDNUMBER;
+    var parsedArguments = minimist(process.argv.slice(3));
+    
+    var username = parsedArguments.username || process.env.PARTICLE_USERNAME;
+    var accessToken = parsedArguments.accesstoken || process.env.PARTICLE_ACCESSTOKEN;
     
     var particleConfiguration = {
       username: username,
-      access_token: accessToken,
-      created_in_build: createdInBuild
+      access_token: accessToken
     };
     
     var particleConfigurationFileContents = JSON.stringify(
