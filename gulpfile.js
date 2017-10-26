@@ -52,4 +52,8 @@ gulp.task('flash', ['setup'], function(callback) {
     });     
 });
 
+gulp.task('RESET', function (callback) {
+    console.log(callback);
+});
+
 gulp.task('default', ['compile']);
