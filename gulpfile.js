@@ -5,6 +5,7 @@ var homedir = require('os-homedir');
 var os = require('os');
 var minimist = require('minimist');
 
+
 gulp.task('setup', function (callback) {
     var parsedArguments = minimist(process.argv.slice(3));
 
