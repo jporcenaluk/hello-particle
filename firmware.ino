@@ -1,12 +1,34 @@
-int ledPin = D7;
+// ------------
+// Blink an LED
+// ------------
+
+int led1 = D0; // Turn pin into a friendly name
 
 void setup() {
-    pinMode(ledPin, OUTPUT);
+
+  pinMode(led1, OUTPUT); // Set pin to output
+
 }
 
 void loop() {
-    digitalWrite(ledPin, LOW);
-    delay(1000);
-    digitalWrite(ledPin, HIGH);
-    delay(1000);
+    
+  // Turn on LED
+  digitalWrite(led1, HIGH);
+
+  // We'll leave it on for 60 seconds...
+  delay(60000);
+  
+  // Tell IoT Hub
+  Particle.publish("default_event", "You turned the light on", PRIVATE);
+
+  // Then we'll turn it off...
+  digitalWrite(led1, LOW);
+
+  // Wait 60 seconds...
+  delay(60000);
+  
+  // Tell IoT Hub
+  Particle.publish("default_event", "You turned the light off", PRIVATE);
+
+  // And repeat!
 }
