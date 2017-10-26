@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var exec = require('child_process').exec;
 var fs = require('fs');
-var homedir = require('os-homedir');
 var os = require('os');
 var minimist = require('minimist');
 
@@ -22,8 +21,8 @@ gulp.task('setup', function(callback) {
         '\t'
         );
     
-    fs.mkdir(homedir() + '/.particle', function () {
-        fs.writeFile(homedir() + '/.particle/particle.config.json', particleConfigurationFileContents, function (err) {
+    fs.mkdir(os.homedir() + '/.particle', function () {
+        fs.writeFile(os.homedir() + '/.particle/particle.config.json', particleConfigurationFileContents, function (err) {
             callback(err);
         });
     });
