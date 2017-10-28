@@ -4,6 +4,7 @@
 
 int led1 = D0; // Turn pin into a friendly name
 
+
 void setup() {
 
   pinMode(led1, OUTPUT); // Set pin to output
