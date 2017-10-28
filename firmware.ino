@@ -15,8 +15,8 @@ void loop() {
   // Turn on LED
   digitalWrite(led1, HIGH);
 
-  // We'll leave it on for 60 seconds...
-  delay(60000);
+  // We'll leave it on for 6 seconds...
+  delay(6000);
   
   // Tell IoT Hub
   Particle.publish("default_event", "You turned the light on", PRIVATE);
@@ -24,8 +24,8 @@ void loop() {
   // Then we'll turn it off...
   digitalWrite(led1, LOW);
 
-  // Wait 60 seconds...
-  delay(60000);
+  // Wait 6 seconds...
+  delay(6000);
   
   // Tell IoT Hub
   Particle.publish("default_event", "You turned the light off", PRIVATE);
