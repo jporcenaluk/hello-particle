@@ -16,19 +16,19 @@ void loop() {
   digitalWrite(led1, HIGH);
 
   // We'll leave it on for some seconds...
-  delay(30000);
+  delay(6000);
   
   // Tell IoT Hub
-  Particle.publish("default_event", "You turned the light on", PRIVATE);
+  Particle.publish("default_event", "Esteban and Facundo turned the light on", PRIVATE);
 
   // Then we'll turn it off...
   digitalWrite(led1, LOW);
 
   // Wait some seconds...
-  delay(30000);
+  delay(6000);
   
   // Tell IoT Hub
-  Particle.publish("default_event", "You turned the light off", PRIVATE);
+  Particle.publish("default_event", "Jared turned the light off", PRIVATE);
 
   // And repeat!
 }
